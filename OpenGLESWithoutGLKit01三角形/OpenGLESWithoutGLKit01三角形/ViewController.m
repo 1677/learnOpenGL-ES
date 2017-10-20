@@ -37,7 +37,7 @@
     _myLayer.opaque = YES; // 设置为不透明
     // 设置kEAGLDrawablePropertyRetainedBacking为NO表示不维持上一次绘制的内容
     // kEAGLColorFormatRGBA8表示设置色彩空间为RGBA8
-    _myLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:@(NO), kEAGLDrawablePropertyRetainedBacking, kEAGLDrawablePropertyColorFormat, kEAGLColorFormatRGBA8, nil];
+    _myLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:@(NO), kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];
     // 将创建的layer添加到视图
     [self.view.layer addSublayer:_myLayer];
     
