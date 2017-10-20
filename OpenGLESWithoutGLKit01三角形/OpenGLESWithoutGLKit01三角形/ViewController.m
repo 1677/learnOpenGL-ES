@@ -134,6 +134,7 @@
             glGetProgramInfoLog(_myPrograme, sizeof(GLchar) * infoLen, &infoLen, info);
             
             NSLog(@"%s", info);
+            free(info);
         }
         // 删除链接失败的程序
         glDeleteProgram(_myPrograme);
