@@ -18,6 +18,8 @@
 		B526D1081F7FD62A009F9271 /* fragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = B526D1061F7FD629009F9271 /* fragmentShader.glsl */; };
 		B526D1091F7FD62A009F9271 /* vertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = B526D1071F7FD62A009F9271 /* vertexShader.glsl */; };
 		B526D10C1F7FD66B009F9271 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B526D10B1F7FD66B009F9271 /* OpenGLES.framework */; };
+		B565DB411F9B98EC009404FD /* lineVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = B565DB401F9B98EC009404FD /* lineVertexShader.glsl */; };
+		B565DB431F9B9907009404FD /* lineFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = B565DB421F9B9907009404FD /* lineFragmentShader.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		B526D1061F7FD629009F9271 /* fragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = fragmentShader.glsl; sourceTree = "<group>"; };
 		B526D1071F7FD62A009F9271 /* vertexShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = vertexShader.glsl; sourceTree = "<group>"; };
 		B526D10B1F7FD66B009F9271 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		B565DB401F9B98EC009404FD /* lineVertexShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = lineVertexShader.glsl; sourceTree = "<group>"; };
+		B565DB421F9B9907009404FD /* lineFragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = lineFragmentShader.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 				B526D0EE1F7FD5ED009F9271 /* ViewController.m */,
 				B526D1061F7FD629009F9271 /* fragmentShader.glsl */,
 				B526D1071F7FD62A009F9271 /* vertexShader.glsl */,
+				B565DB421F9B9907009404FD /* lineFragmentShader.glsl */,
+				B565DB401F9B98EC009404FD /* lineVertexShader.glsl */,
 				B526D0F01F7FD5ED009F9271 /* Main.storyboard */,
 				B526D0F31F7FD5ED009F9271 /* Assets.xcassets */,
 				B526D0F51F7FD5ED009F9271 /* LaunchScreen.storyboard */,
@@ -158,7 +164,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B526D0F71F7FD5ED009F9271 /* LaunchScreen.storyboard in Resources */,
+				B565DB431F9B9907009404FD /* lineFragmentShader.glsl in Resources */,
 				B526D0F41F7FD5ED009F9271 /* Assets.xcassets in Resources */,
+				B565DB411F9B98EC009404FD /* lineVertexShader.glsl in Resources */,
 				B526D1091F7FD62A009F9271 /* vertexShader.glsl in Resources */,
 				B526D1081F7FD62A009F9271 /* fragmentShader.glsl in Resources */,
 				B526D0F21F7FD5ED009F9271 /* Main.storyboard in Resources */,

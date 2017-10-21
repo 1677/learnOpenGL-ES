@@ -77,6 +77,40 @@ const GLbyte indexes[] = {
     20, 23, 21,
 };
 
+// 想画只有线绘成的立方体就下面注释的代码打开，并将相同的代码注释掉就可以了，下面注释的代码也做这样的操作
+//const GLfloat vertexes[] = {
+//
+//    -0.5f, 0.5f, 0.5f, // 前左上 0
+//    -0.5f, -0.5f, 0.5f, // 前左下 1
+//    0.5f, -0.5f, 0.5f, // 前右下 2
+//    0.5f, 0.5f, 0.5f, // 前右上 3
+//    // 后面
+//    -0.5f, 0.5f, -0.5f, // 后左上 4
+//    -0.5f, -0.5f, -0.5f, // 后左下 5
+//    0.5f, -0.5f, -0.5f, // 后右下 6
+//    0.5f, 0.5f, -0.5f // 后右上 7
+//};
+//
+//
+//const GLbyte indexes[] = {
+//    0, 1,
+//    1, 2,
+//    2, 3,
+//    3, 0,
+//
+//    4, 5,
+//    5, 6,
+//    6, 7,
+//    7, 4,
+//
+//    0, 4,
+//    1, 5,
+//    2, 6,
+//    3, 7
+//};
+
+
+
 @interface ViewController ()
 
 @property(nonatomic,assign)GLfloat degreeX;
@@ -257,6 +291,9 @@ const GLbyte indexes[] = {
     GLuint vertexShader = [self loadShader:GL_VERTEX_SHADER withFileName:@"vertexShader.glsl"];
     GLuint fragmentShader = [self loadShader:GL_FRAGMENT_SHADER withFileName:@"fragmentShader.glsl"];
     
+//    GLuint vertexShader = [self loadShader:GL_VERTEX_SHADER withFileName:@"lineVertexShader.glsl"];
+//    GLuint fragmentShader = [self loadShader:GL_FRAGMENT_SHADER withFileName:@"lineFragmentShader.glsl"];
+    
     _program = glCreateProgram();
     glAttachShader(_program, vertexShader);
     glAttachShader(_program, fragmentShader);
@@ -305,10 +342,12 @@ const GLbyte indexes[] = {
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indexes), indexes, GL_STATIC_DRAW);
     
     glVertexAttribPointer(_vertexSlot, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, NULL);
+//    glVertexAttribPointer(_vertexSlot, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 3, NULL);
     glEnableVertexAttribArray(_vertexSlot);
-    
+
     glVertexAttribPointer(_textureCoordsSlot, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, (GLfloat *)NULL + 3);
     glEnableVertexAttribArray(_textureCoordsSlot);
+    
 }
 
 
@@ -353,6 +392,8 @@ const GLbyte indexes[] = {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     glDrawElements(GL_TRIANGLES, sizeof(indexes)/sizeof(indexes[0]), GL_UNSIGNED_BYTE, 0);
+    
+//    glDrawElements(GL_LINES, sizeof(indexes) / sizeof(indexes[0]), GL_UNSIGNED_BYTE, 0);
     
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }

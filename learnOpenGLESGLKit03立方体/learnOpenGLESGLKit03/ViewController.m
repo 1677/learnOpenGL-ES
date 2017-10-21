@@ -40,6 +40,9 @@ typedef struct {
     [self setupViewAndContext];
     
     self.effect = [[GLKBaseEffect alloc] init];
+    // 想画只有线绘成的立方体就下面注释的代码打开，并将相同的代码注释掉和将纹理的代码也注释掉就可以了，下面注释的代码也做这样的操作
+//    self.effect.useConstantColor = GL_TRUE;
+//    self.effect.constantColor = GLKVector4Make(1.0, 0.0, 0.0, 1.0);
     
     [self setupVertex];
     [self setupTexture2D];
@@ -115,9 +118,9 @@ typedef struct {
         -0.5f, -0.5f, -0.5f,    0.0f, 0.0f, // 后左下 22
         0.5f, -0.5f, -0.5f,     1.0f, 0.0f, // 后右下 23
     };
-    
+
     // 索引
-    const GLbyte index[] = {
+    const GLbyte indexes[] = {
         // 前面
         0, 1, 2,
         0, 2, 3,
@@ -138,6 +141,38 @@ typedef struct {
         20, 23, 21
     };
     
+    
+//    const GLfloat vertexes[] = {
+//
+//        -0.5f, 0.5f, 0.5f, // 前左上 0
+//        -0.5f, -0.5f, 0.5f, // 前左下 1
+//        0.5f, -0.5f, 0.5f, // 前右下 2
+//        0.5f, 0.5f, 0.5f, // 前右上 3
+//        // 后面
+//        -0.5f, 0.5f, -0.5f, // 后左上 4
+//        -0.5f, -0.5f, -0.5f, // 后左下 5
+//        0.5f, -0.5f, -0.5f, // 后右下 6
+//        0.5f, 0.5f, -0.5f // 后右上 7
+//    };
+//
+//    const GLbyte indexes[] = {
+//        0, 1,
+//        1, 2,
+//        2, 3,
+//        3, 0,
+//
+//        4, 5,
+//        5, 6,
+//        6, 7,
+//        7, 4,
+//
+//        0, 4,
+//        1, 5,
+//        2, 6,
+//        3, 7
+//    };
+    
+    
     // 创建VBO并传递顶点数据
     GLuint buffer;
     glGenBuffers(1, &buffer);
@@ -148,10 +183,12 @@ typedef struct {
     GLuint indexBuffer;
     glGenBuffers(1, &indexBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(index), index, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indexes), indexes, GL_STATIC_DRAW);
     
     // 设置顶点指针数据参数
     glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, NULL);
+//    glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 3, NULL);
+    
     // 启用顶点数据
     glEnableVertexAttribArray(GLKVertexAttribPosition);
     
@@ -250,6 +287,11 @@ typedef struct {
                    36, // 索引的个数
                    GL_UNSIGNED_BYTE, // 索引的数据类型
                    0); // 索引从第几个开始
+    
+//    glDrawElements(GL_LINES, // 绘制顶点的模式
+//                   24, // 索引的个数
+//                   GL_UNSIGNED_BYTE, // 索引的数据类型
+//                   0); // 索引从第几个开始
 }
 
 
